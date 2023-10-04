@@ -6,15 +6,18 @@ app = Flask('app')
 def sakums():
     return render_template('index.html')
 
-@app.route('/sveiki')
+@app.route('/sveiki', methods=["POST","GET"])
 def sveiki():
-    visi_vardi = ['lapsene', 'Katrīne', 'pasaule']
-    return render_template('sveiki.html', vards = visi_vardi)
-
-@app.route('/sveiki/<vards>')
-def sveiki1(vards):
-    visi_vardi = ['lapsene', 'Katrīne', 'pasaule', vards]   
-    return render_template('sveiki.html', vards = visi_vardi)
+    vardins = "nekas"
+    uzvardins = "nekas"
+    if request.method == "POST":
+        dati = request.json
+        print(dati)
+        vardins = dati["cilvekaVards"]
+        uzvardins = dati["cilvekaUzvards"]
+        print(vardins,uzvardins)
+    return render_template('sveiki.html', vards = vardins, uzvards = uzvardins)
+return render_template('sveiki.html', vards = vardins, uzvards = uzvardins)
 
 if __name__ == '__main__':
     app.run(threaded=True, port = 5000)
