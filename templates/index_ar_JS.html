@@ -1,12 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="lv">
     <head>
+
+        <title>MB - {% block title %}Index{% endblock %}</title>
+        <script src="{{ url_for('static', filename='funkcijas.js') }}"></script>
     </head>
     <body>
-        <a href="/">Sākums</a>
-        <a href="/sveiki">Sveiki!</a> 
-        {% block saturs%}
-        <h1>sveika pasaule</h1>
-        {%endblock%}
+        <a href="/">Index</a>
+        <a href="/sveiki">Sveiki!</a>
+        {% block saturs %}
+
+        <h1>Sākums</h1>
+
+
+
+        {% endblock %}
     </body>
 </html>

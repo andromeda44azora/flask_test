@@ -1,10 +1,8 @@
-{% extends 'index.html '%}
+{% extends 'index.html' %}
 
-{% block  title %}Sveiki{% endblock %}
+{% block title %}Sveiki{% endblock %}
 
-{% for viens in vards %}
+{% block saturs %}
 
-<h1>Sveiki, {{viens}} </h1>
-{% endfor %}
-
+<h1>Sveiki, {{vards}} {{uzvards}}!</h1>
 {% endblock %}

@@ -1,12 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="lv">
     <head>
+
+        <title>MB - {% block title %}Index{% endblock %}</title>
+        <script src="{{ url_for('static', filename='funkcijas.js') }}"></script>
     </head>
     <body>
-        <a href="/">Sākums</a>
-        <a href="/sveiki">Sveiki!</a> 
-        {% block saturs%}
-        <h1>sveika pasaule</h1>
-        {%endblock%}
+        <a href="/">Index</a>
+        <a href="/sveiki">Sveiki!</a>
+        {% block saturs %}
+
+        <h1>Sākums</h1>
+        <form action="/sveiki" method="POST">
+            <input name="vards" type="text" placeholder="Vārds">
+            <input name="uzvards" type="text" placeholder="Uzvārds">
+            <button type="submit">Sveiki!</button>
+        </form>
+
+
+        {% endblock %}
     </body>
 </html>
